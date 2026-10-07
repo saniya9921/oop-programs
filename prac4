@@ -1,44 +1,59 @@
 //4 Write a C++ program to add three complex numbers using a class.
 
-#include <iostream>
-using namespace std;
+#include <iostream>                  // Includes input and output library
+using namespace std;                 // Allows us to use cin and cout directly
 
-class Complex {
-    float real, imag;
+class Complex {                      // Defines a class named Complex
+    float real, imag;                // Stores real and imaginary parts
 
-public:
+public:                              // Public section of the class
+
+    // Function to accept real and imaginary parts
     void input() {
-        cin >> real >> imag;
+        cin >> real >> imag;         // Takes real and imaginary values as input
     }
 
+    // Function to add three complex numbers
     Complex add(Complex c1, Complex c2) {
-        Complex temp;
+        Complex temp;                // Creates a temporary Complex object
+
+        // Adds the real parts of all three complex numbers
         temp.real = real + c1.real + c2.real;
+
+        // Adds the imaginary parts of all three complex numbers
         temp.imag = imag + c1.imag + c2.imag;
-        return temp;
+
+        return temp;                 // Returns the result
     }
 
+    // Function to display the complex number
     void display() {
-        cout << real << " + " << imag << "i";
+        cout << real << " + " << imag << "i"; // Displays the complex number
     }
 };
 
-int main() {
+int main() {                         // Main function starts
+
+    // Creates four Complex objects
     Complex c1, c2, c3, sum;
 
+    // Accepts the first complex number
     cout << "Enter first complex number (real imaginary): ";
-    c1.input();
+    c1.input();                      // Calls input() for first number
 
+    // Accepts the second complex number
     cout << "Enter second complex number (real imaginary): ";
-    c2.input();
+    c2.input();                      // Calls input() for second number
 
+    // Accepts the third complex number
     cout << "Enter third complex number (real imaginary): ";
-    c3.input();
+    c3.input();                      // Calls input() for third number
 
+    // Adds all three complex numbers
     sum = c1.add(c2, c3);
 
-    cout << "Sum = ";
-    sum.display();
+    cout << "Sum = ";                // Displays the result message
+    sum.display();                   // Displays the sum
 
-    return 0;
+    return 0;                        // Ends the program successfully
 }
