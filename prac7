@@ -1,0 +1,39 @@
+//7 Write a C++ program to implement a String class that accepts a student's name and displays it using constructor, destructor, Accept() and Display() functions.
+
+#include <iostream>              // Includes input and output library
+#include <string>                // Includes string data type
+using namespace std;             // Allows us to use cout and string directly
+
+class String {                   // Defines a class named String
+    string name;                 // Variable to store student's name
+
+public:                          // Public section of the class
+
+    String() {                   // Constructor
+        cout << "Constructor called" << endl; // Displays constructor message
+    }
+
+    void Accept() {              // Accept() function starts
+        cout << "Enter student's name: ";     // Asks user to enter name
+        getline(cin, name);      // Accepts the student's name
+    }
+
+    void Display() {             // Display() function starts
+        cout << "Student's name: " << name << endl; // Displays the name
+    }
+
+    ~String() {                  // Destructor
+        cout << "Destructor called" << endl; // Displays destructor message
+    }
+};
+
+int main() {                     // Main function starts
+
+    String s;                    // Creates an object and calls constructor
+
+    s.Accept();                  // Calls Accept() to get student's name
+
+    s.Display();                 // Calls Display() to display student's name
+
+    return 0;                   
+}                                
