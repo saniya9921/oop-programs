@@ -1,0 +1,66 @@
+//8 Write a C++ program using multiple inheritance to store employee basic information and insurance information and calculate the employee's annual insurance contribution.
+
+#include <iostream>                  // Includes input and output library
+using namespace std;                 // Allows us to use cin and cout directly
+
+// Base class for employee information
+class Employee
+{
+protected:
+    string name;                     // Stores employee name
+    int salary;                       // Stores annual salary
+
+public:
+    // Function to accept employee information
+    void getEmployee()
+    {
+        cout << "Enter employee name: ";
+        cin >> name;                 // Accepts employee name
+
+        cout << "Enter annual salary: ";
+        cin >> salary;               // Accepts annual salary
+    }
+};
+
+// Base class for insurance information
+class Insurance
+{
+protected:
+    float rate;                      // Stores insurance contribution rate
+
+public:
+    // Function to accept insurance rate
+    void getInsurance()
+    {
+        cout << "Enter insurance rate (%): ";
+        cin >> rate;                 // Accepts insurance rate
+    }
+};
+
+// Derived class inheriting from both classes
+class EmployeeInsurance : public Employee, public Insurance
+{
+public:
+    // Function to calculate annual insurance contribution
+    void calculate()
+    {
+        float contribution;          // Variable to store contribution
+
+        contribution = salary * rate / 100;  // Calculates contribution
+
+        cout << "\nEmployee Name: " << name << endl; // Displays employee name
+        cout << "Annual Insurance Contribution: "
+             << contribution << endl;                 // Displays contribution
+    }
+};
+
+int main()
+{
+    EmployeeInsurance e;             // Creates object of derived class
+
+    e.getEmployee();                 // Calls employee information function
+    e.getInsurance();                // Calls insurance information function
+    e.calculate();                   // Calculates annual contribution
+
+    return 0;                        // Ends the program successfully
+}
