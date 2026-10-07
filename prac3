@@ -1,0 +1,65 @@
+//3 Write a program in C++ to sort the numbers in an array using separate functions for
+read, display, sort and swap. The objective of this assignment is to learn the
+concepts of input, output, functions, call by reference in C++.
+
+#include <iostream>
+using namespace std;
+
+// Function to read array
+void read(int a[], int n)
+{
+    cout << "Enter " << n << " numbers: ";
+    for(int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+// Function to swap two numbers (Call by Reference)
+void swapNum(int &x, int &y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+// Function to sort array
+void sortArray(int a[], int n)
+{
+    for(int i = 0; i < n - 1; i++)
+    {
+        for(int j = 0; j < n - 1 - i; j++)
+        {
+            if(a[j] > a[j + 1])
+            {
+                swapNum(a[j], a[j + 1]);
+            }
+        }
+    }
+}
+
+// Function to display array
+void display(int a[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+int main()
+{
+    int a[5];
+
+    read(a, 5);
+
+    cout << "Before sorting: ";
+    display(a, 5);
+
+    sortArray(a, 5);
+
+    cout << "\nAfter sorting: ";
+    display(a, 5);
+
+    return 0;
+}
