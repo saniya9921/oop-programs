@@ -1,0 +1,65 @@
+//9 Write a C++ program to demonstrate run-time polymorphism using a base class Course and derived classes TheoryCourse and PracticalCourse with a virtual calculateMarks() function.
+
+#include <iostream>                  // Includes input and output library
+using namespace std;                 // Allows us to use cin and cout directly
+
+// Base class
+class Course
+{
+public:
+    // Virtual function
+    virtual void calculateMarks()
+    {
+        cout << "Calculating course marks" << endl;
+    }
+};
+
+// Derived class for Theory Course
+class TheoryCourse : public Course
+{
+public:
+    // Overrides calculateMarks()
+    void calculateMarks()
+    {
+        int marks;                   // Variable to store theory marks
+
+        cout << "Enter theory marks: ";
+        cin >> marks;                // Accepts theory marks
+
+        cout << "Theory Course Marks = " << marks << endl;
+    }
+};
+
+// Derived class for Practical Course
+class PracticalCourse : public Course
+{
+public:
+    // Overrides calculateMarks()
+    void calculateMarks()
+    {
+        int marks;                   // Variable to store practical marks
+
+        cout << "Enter practical marks: ";
+        cin >> marks;                // Accepts practical marks
+
+        cout << "Practical Course Marks = " << marks << endl;
+    }
+};
+
+int main()
+{
+    Course *course;                  // Base class pointer
+
+    TheoryCourse theory;             // Creates TheoryCourse object
+    PracticalCourse practical;       // Creates PracticalCourse object
+
+    // Base pointer points to TheoryCourse object
+    course = &theory;
+    course->calculateMarks();        // Calls TheoryCourse's function
+
+    // Base pointer points to PracticalCourse object
+    course = &practical;
+    course->calculateMarks();        // Calls PracticalCourse's function
+
+    return 0;                        // Ends the program successfully
+}
