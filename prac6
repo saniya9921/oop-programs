@@ -1,0 +1,34 @@
+//6 Write a C++ program to overload the >> operator to accept real and imaginary parts of a complex number from the user.
+
+#include <iostream>                  
+using namespace std;                 // Allows us to use cin and cout directly
+
+class Complex {                      // Defines a class named Complex
+    float real, imag;                // Stores real and imaginary parts
+
+public:                              // Starts the public section
+
+    // Overloading >> operator
+    friend istream& operator>>(istream& in, Complex& c) {
+        in >> c.real >> c.imag;      // Accepts real and imaginary parts
+        return in;                   // Returns the input stream
+    }
+
+    // Function to display the complex number
+    void display() {
+        cout << real << " + " << imag << "i"; // Displays complex number
+    }
+};
+
+int main() {                         // Main function starts here
+
+    Complex c;                       // Creates a Complex object
+
+    cout << "Enter real and imaginary parts: "; // Asks user for input
+    cin >> c;                        // Calls overloaded >> operator
+
+    cout << "Complex number = ";     // Displays a message
+    c.display();                     // Calls display function
+
+    return 0;                        
+}
