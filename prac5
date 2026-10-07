@@ -1,0 +1,31 @@
+//5 Write a C++ program to overload the discount() function for calculating discounts with two and three parameters.
+
+#include <iostream>              // Includes the input-output library
+using namespace std;             // Allows us to use cout without std::
+
+class Shop {                     // Defines a class named Shop
+public:                          // Makes the functions accessible outside the class
+
+    // Function with two parameters
+    float discount(float price, float rate) {  // Calculates discount using price and rate
+        return price - (price * rate / 100);  // Returns price after discount
+    }                                           // Ends the first discount function
+
+    // Function with three parameters
+    float discount(float price, float rate, float extra) { // Calculates discount with extra amount
+        return price - (price * rate / 100) - extra;       // Returns final price after discounts
+    }                                                       // Ends the second discount function
+};                                                          // Ends the Shop class
+
+int main() {                                              
+
+    Shop s;                                                 // Creates an object of Shop class
+
+    cout << "Price after discount (2 parameters): "         // Displays a message
+         << s.discount(1000, 10) << endl;                  // Calls discount() with 2 parameters
+
+    cout << "Price after discount (3 parameters): "         // Displays a message
+         << s.discount(1000, 10, 50) << endl;              // Calls discount() with 3 parameters
+
+    return 0;                                              
+}                                                       
