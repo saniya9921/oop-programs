@@ -1,33 +1,37 @@
 //Write a C++ program to print pascal triangles.
 
-#include <iostream>
-using namespace std;
+#include <iostream>              // Includes input and output library
+using namespace std;             // Allows us to use cout and cin directly
 
 int main()
 {
-    int n;
+    int n;                       // Variable to store number of rows
 
-    cout << "Enter number of rows: ";
-    cin >> n;
+    cout << "Enter number of rows: ";  // Asks the user for number of rows
+    cin >> n;                    // Takes number of rows as input
 
+    // Outer loop for each row
     for(int i = 0; i < n; i++)
     {
+        // Prints spaces before the numbers
         for (int space = 0; space < n - i - 1; space++)
         {
-            cout << " ";
+            cout << " ";         // Prints one space
         }
 
-        int value = 1;
+        int value = 1;            // First value of every row is 1
 
+        // Inner loop to print numbers in each row
         for(int j = 0; j <= i; j++)
         {
-            cout << value << " ";
+            cout << value << " "; // Prints the current value
 
+            // Calculates the next value in Pascal's Triangle
             value = value * (i - j) / (j + 1);
         }
 
-        cout << endl;
+        cout << endl;             // Moves to the next line
     }
 
-    return 0;
+    return 0;                     // Ends the program successfully
 }
