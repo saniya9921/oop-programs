@@ -1,0 +1,30 @@
+// write a c++ program to validates an employee's working hours and throw an exception for invalid values
+
+
+#include <iostream>     // Includes input and output functions
+#include <stdexcept>    // Includes exception classes
+using namespace std;    // Allows using standard library names directly
+
+int main() {            // Main function starts
+    double hours;       // Declares a variable to store working hours
+
+    try {               // Starts the try block
+        cout << "Enter employee working hours: "; // Displays a message
+        cin >> hours;   // Accepts working hours from the user
+
+        // Checks whether the hours are less than 0 or greater than 24
+        if (hours < 0 || hours > 24) {
+            // Throws an exception if the hours are invalid
+            throw invalid_argument("Invalid working hours!");
+        }
+
+        // Displays the working hours if the value is valid
+        cout << "Valid working hours: " << hours << " hours" << endl;
+    }
+    catch (const invalid_argument& e) { // Catches the exception
+        // Displays the exception error message
+        cout << "Exception caught: " << e.what() << endl;
+    }
+
+    return 0;           // Ends the program successfully
+}
