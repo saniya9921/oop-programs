@@ -1,0 +1,29 @@
+
+// Title: Program to Copy Contents of One File to Another
+
+#include <iostream>  // Header file for input and output
+#include <fstream>   // Header file for file handling
+using namespace std; // Use the standard namespace
+
+int main() { // Main function starts
+    ifstream fin("source.txt"); // Open source.txt for reading
+    ofstream fout("target.txt"); // Open target.txt for writing
+
+    char ch; // Declare a character variable
+
+    if (!fin) { // Check whether the source file opened successfully
+        cout << "Source file not found!"; // Display an error message
+        return 0; // Stop the program
+    }
+
+    while (fin.get(ch)) { // Read characters until the end of the file
+        fout.put(ch); // Write each character to the target file
+    }
+
+    cout << "File copied successfully!"; // Display the success message
+
+    fin.close(); // Close the source file
+    fout.close(); // Close the target file
+
+    return 0; // End the program successfully
+}
