@@ -1,0 +1,36 @@
+
+// Title:  Write a c++ Program to Implement Class and Function Templates
+
+#include <iostream>  // Header file for input and output
+using namespace std; // Use the standard namespace
+
+// Function template declaration
+template <class T>
+T add(T a, T b) { // Function to add two values
+    return a + b; // Return the sum
+}
+
+// Class template declaration
+template <class T>
+class Demo { // Define a class named Demo
+public:
+    T num; // Declare a variable of generic type T
+
+    Demo(T n) { // Constructor to initialize the variable
+        num = n; // Assign the value to num
+    }
+
+    void display() { // Function to display the number
+        cout << "Number = " << num << endl; // Print the number
+    }
+};
+
+int main() { // Main function starts
+    cout << "Sum = " << add(10, 20) << endl; // Call the function template
+
+    Demo<int> d(50); // Create an integer object of the class template
+    d.display(); // Call the display function
+
+    return 0; // End the program successfully
+}
+
