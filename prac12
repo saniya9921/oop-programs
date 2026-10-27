@@ -1,4 +1,4 @@
-```cpp
+
 // Title: Program to Demonstrate the Use of Namespace
 
 #include <iostream>  // Header file for input and output
@@ -22,11 +22,4 @@ int main() { // Main function starts
 
     return 0; // End the program successfully
 }
-```
 
-**Output:**
-
-```text
-This is First Namespace
-This is Second Namespace
-```
