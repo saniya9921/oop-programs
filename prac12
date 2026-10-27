@@ -1,0 +1,32 @@
+```cpp
+// Title: Program to Demonstrate the Use of Namespace
+
+#include <iostream>  // Header file for input and output
+using namespace std; // Use the standard namespace
+
+namespace First { // Define the first namespace
+    void display() { // Declare the display function
+        cout << "This is First Namespace" << endl; // Print the first message
+    }
+}
+
+namespace Second { // Define the second namespace
+    void display() { // Declare another display function
+        cout << "This is Second Namespace" << endl; // Print the second message
+    }
+}
+
+int main() { // Main function starts
+    First::display(); // Call display from the First namespace
+    Second::display(); // Call display from the Second namespace
+
+    return 0; // End the program successfully
+}
+```
+
+**Output:**
+
+```text
+This is First Namespace
+This is Second Namespace
+```
